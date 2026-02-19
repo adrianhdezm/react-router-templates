@@ -4,7 +4,7 @@ import 'react-router';
 
 declare module 'react-router' {
   interface AppLoadContext {
-    VALUE_FROM_EXPRESS: string;
+    APP_NAME: string;
   }
 }
 
@@ -15,7 +15,7 @@ app.use(
     build: () => import('virtual:react-router/server-build'),
     getLoadContext() {
       return {
-        VALUE_FROM_EXPRESS: 'Hello from Express'
+        APP_NAME: 'Simple App'
       };
     }
   })

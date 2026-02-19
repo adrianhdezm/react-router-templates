@@ -3,11 +3,11 @@ import { Button } from '~/components/ui/button';
 import type { Route } from './+types/home';
 
 export function meta(_: Route.MetaArgs) {
-  return [{ title: 'New React Router App' }, { name: 'description', content: 'Welcome to React Router!' }];
+  return [{ title: 'Simple App' }, { name: 'description', content: 'Welcome to Simple App!' }];
 }
 
 export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.VALUE_FROM_EXPRESS };
+  return { message: context.APP_NAME };
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {
