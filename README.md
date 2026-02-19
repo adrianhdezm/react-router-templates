@@ -1,14 +1,19 @@
-# starter-app
+# react-router-templates
 
-This is a modern React Router application with a custom Express server.
+This repository is a pnpm monorepo.
 
-## Scripts
+## Workspace
 
-- `pnpm run dev`: Start the development server.
-- `pnpm run start`: Start the production server.
-- `pnpm run typecheck`: Run TypeScript type checking.
-- `pnpm run format`: Format the code using Prettier.
+- `simple-app` — React Router + Express application
 
-## Environment
+## Use as Template
 
-The server uses a `.env` file to set the `NODE_ENV` variable.
+Create a new project from this template:
+
+- `npx create-react-router@latest --template adrianhdezm/react-router-templates/simple-app`
+
+After scaffolding:
+
+- `cd <your-app-name>`
+- `pnpm install`
+- `pnpm dev`

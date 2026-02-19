@@ -1,0 +1,6 @@
+packages:
+  - simple-app
+
+onlyBuiltDependencies:
+  - esbuild
+  - msw
