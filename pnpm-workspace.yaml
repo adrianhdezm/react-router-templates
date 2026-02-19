@@ -1,5 +1,6 @@
 packages:
   - simple-app
+  - simple-app-with-db
 
 onlyBuiltDependencies:
   - esbuild
