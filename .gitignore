@@ -3,3 +3,4 @@
 
 # Database migrations
 simple-app-with-db/db/migrations/*
+simple-app-with-auth/db/migrations/*

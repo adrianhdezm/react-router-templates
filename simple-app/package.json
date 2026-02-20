@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "dev": "node --env-file=.env server.ts | pino-pretty",
+    "dev": "LOG_LEVEL=debug node --env-file=.env server.ts | pino-pretty --colorize --singleLine --translateTime 'HH:MM:ss.l' --ignore pid,hostname,req.headers,res.headers",
     "start": "node --env-file=.env server.ts",
     "typecheck": "react-router typegen && tsc -b",
     "format": "prettier --write . \"app/**/*.{ts,tsx,json,mjs,yml,css}\" --cache",

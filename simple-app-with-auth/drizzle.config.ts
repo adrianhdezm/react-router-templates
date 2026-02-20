@@ -1,0 +1,19 @@
+import { type Config, defineConfig } from 'drizzle-kit';
+
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL is required');
+}
+
+export default defineConfig({
+  out: './db/migrations',
+  schema: './app/db/schema.ts',
+  dialect: 'postgresql',
+  dbCredentials: {
+    url: process.env.DATABASE_URL
+  },
+  migrations: {
+    prefix: 'timestamp',
+    table: '__migrations__',
+    schema: 'public'
+  }
+}) satisfies Config;

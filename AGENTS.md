@@ -8,6 +8,7 @@ This repository contains React Router templates apps intended to be used with `c
 
 - `simple-app`: React Router + Express + SSR
 - `simple-app-with-db`: React Router + Express + SSR + PostgreSQL (Drizzle ORM)
+- `simple-app-with-auth`: React Router + Express + SSR + PostgreSQL (Drizzle ORM) + Better Auth
 
 ## Working Model
 
@@ -22,6 +23,7 @@ This repository contains React Router templates apps intended to be used with `c
 
 - `simple-app/`: base template
 - `simple-app-with-db/`: database template
+- `simple-app-with-auth/`: auth + database template
 
 ## Setup
 
@@ -31,6 +33,7 @@ From repo root:
 2. Run a template in dev mode:
    - `pnpm --filter simple-app dev`
    - `pnpm --filter simple-app-with-db dev`
+   - `pnpm --filter simple-app-with-auth dev`
 
 For DB template local database:
 
@@ -51,6 +54,8 @@ Run checks for all templates from root:
 - Keep changes scoped to the target template unless the task is explicitly cross-template.
 - If a non-DB behavior change applies to both templates, update both or document why only one changed.
 - Preserve React Router framework mode + SSR unless requested otherwise.
+- In `simple-app-with-auth` route modules, access Better Auth via `context.auth` from `Route.LoaderArgs` / `Route.ActionArgs`; do not import `auth` directly in route files.
+- In `simple-app-with-auth`, prefer shadcn/Base UI primitives for form and layout UI; add missing primitives with `pnpm dlx shadcn@latest add <component>`.
 - Do not commit secrets or `.env` files.
 - Avoid unnecessary lockfile churn; update dependencies only when needed.
 

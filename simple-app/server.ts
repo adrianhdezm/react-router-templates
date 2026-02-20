@@ -3,15 +3,14 @@ import express from 'express';
 import pino from 'pino';
 import pinoHttp from 'pino-http';
 
-// Initialize the logger with desired options
-const logger = pino({
-  level: process.env.LOG_LEVEL || 'info'
-});
-
 // Short-circuit the type-checking of the built output.
 const BUILD_PATH = './build/server/index.js';
 const DEVELOPMENT = process.env.NODE_ENV === 'development';
 const PORT = Number.parseInt(process.env.PORT || '3000');
+
+const logger = pino({
+  level: process.env.LOG_LEVEL || 'info'
+});
 
 const app = express();
 
@@ -34,20 +33,13 @@ app.use(
     autoLogging: {
       ignore: (req) => {
         // Ignore logging for static asset requests
-        return req.url.startsWith('/@vite') || req.url.startsWith('/node_modules');
+        return (
+          req.url.startsWith('/@vite') ||
+          req.url.startsWith('/node_modules') ||
+          req.url.startsWith('/assets/') ||
+          req.url === '/favicon.ico'
+        );
       }
-    },
-
-    // Define a custom logger level
-    customLogLevel: (_req, res, err) => {
-      if (res.statusCode >= 400 && res.statusCode < 500) {
-        return 'warn';
-      } else if (res.statusCode >= 500 || err) {
-        return 'error';
-      } else if (res.statusCode >= 300 && res.statusCode < 400) {
-        return 'silent';
-      }
-      return 'info';
     }
   })
 );
