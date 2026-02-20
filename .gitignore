@@ -1,2 +1,5 @@
 .DS_Store
 /node_modules/
+
+# Database migrations
+simple-app-with-db/db/migrations/*
